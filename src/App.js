@@ -15,7 +15,7 @@ function App() {
   return (
     <div className="background-image">
         <div>
-          <Router basename="/kamaleiah.github.io">
+          <Router basename="/">
             <FavContextProvider>
               <Routes>
 
