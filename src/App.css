@@ -1,5 +1,5 @@
 body {
-    background-image: url('https://blog.depositphotos.com/wp-content/uploads/2017/07/Soothing-nature-backgrounds-2-1536x1025.jpg');
+    background-image: url('./image/simple-bg.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;

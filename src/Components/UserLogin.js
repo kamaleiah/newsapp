@@ -17,7 +17,7 @@ function UserLogin () {
         display: 'flex',
         flexDirection: 'column',
         borderRadius: '8px',
-        backgroundColor: 'rgba(255, 228, 196, 0.7)',
+        backgroundColor: 'rgba(255, 228, 196, 0.8)',
         boxShadow: '0px 2px 8px rgba(0, 0, 0, 0.15)', 
         padding: '20px', 
         marginTop: '50px',

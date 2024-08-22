@@ -1,57 +1,47 @@
-import React, { useEffect} from "react";
-import Swiper from 'swiper/bundle';
-import 'swiper/css';
-import 'swiper/css/pagination';
+import React from "react";
+import './Home.css';
 import { useCrud } from "../context/appContext";
+import { useNavigate } from "react-router-dom";
 
-function Banner () {
-    const { article } = useCrud();
+function Banner (prop) {
+  const { logout, search, setSearch, handleSearch, userInfo } = useCrud();
+  const { username } = userInfo;
+  const navigate = useNavigate();
 
-    useEffect(() => {
-        const swiper = new Swiper('.banner', {
-          loop: true,
-          speed: 600,
-          autoplay: {
-            delay: 5000,
-          },
-          slidesPerView: 'auto',
-          pagination: {
-            el: '.swiper-pagination',
-            type: 'bullets',
-            clickable: true,
-          },
-        });
-      
-        return () => {
-          swiper.destroy();
-        };
-      }, []);
+  const aSearch = (e) => {
+      handleSearch(search)
+  }
+
+  const userLogout = () => {
+      logout()
+      navigate("/")
+  }
 
     return (
-        <div 
-            style={{
-                backgroundColor:"white", 
-                width:'100%', 
-                height:"500px",
-                }}>
-            <div className="container" data-aos="fade-up" data-aos-delay="100" style={{float:'right'}}>
-            <div className="row gy-4">
-            <div className="col-lg-8">
-                <div className="banner swiper">
-                    <div className="swiper-wrapper align-items-center" style={{alignItems:"center"}}>
-                    { (article.slice(0,5)).map((a) => (
-                    <div className="swiper-slide">
-                        <img src={a.imageUrl} alt="" 
-                        style={{width:"50%", maxHeight:'450px', float:'right'}}/>
-                    </div>
-                    ))}
-                    </div>
-                    <div className="swiper-pagination"></div>
+      <>
+        <h2 className="page-header">
+            <i className ="bars icon" onClick={prop.menu} 
+              style={{marginTop:'5px', cursor:'pointer' }}/>
+            Find My News
+            <div className="ui-search">
+                <div className="ui icon input" style={{width:'300px'}}>
+                    <input type="text" placeholder="Search article" value={search} 
+                        onChange={(e) => setSearch(e.target.value)} />
+                    <i className="search icon"/>
                 </div>
+                <button className="ui button black" style={{marginLeft:'5px'}} 
+                    onClick={aSearch}>SEARCH</button>
             </div>
-            </div>      
+            <div style={{display:'flex'}}>
+            <div className="user-icon">
+                <i className="user circle icon" style={{marginBottom:'13px'}}/>{userInfo? username:""}</div>
+            <button className="ui button black" onClick={userLogout}>LOGOUT</button>
             </div>
+        </h2>
+        <div className="page-banner">
+                <h1 className="header-text">Discover the latest news</h1>
         </div>
+      </>
     )
 }
 
