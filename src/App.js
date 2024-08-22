@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes , Route, Navigate } from 'react-router-dom';
+import { HashRouter, Router, Routes , Route, Navigate } from 'react-router-dom';
 import UserLogin from "./Components/UserLogin";
 import Homepage from "./Components/HomePage";
 import { useCrud } from "./context/appContext";
@@ -13,7 +13,7 @@ function App() {
 
   return (
     <div>
-        <div>
+        <HashRouter>
           <Router basename="/">
             <FavContextProvider>
               <Routes>
@@ -31,7 +31,7 @@ function App() {
               </Routes> 
             </FavContextProvider>       
           </Router>
-      </div>
+      </HashRouter>
     </div>
 
   );
