@@ -4,7 +4,7 @@
 
   "private": true,
 
-  "homepage": "https://kamaleiah.github.io/newsapp",
+  "homepage": "https://kamaleiah.github.io/newsapp/",
 
   "dependencies": {
 
@@ -48,7 +48,7 @@
 
     "predeploy": "npm run build",
 
-    "deploy": "gh-pages -b main -d build",
+    "deploy": "gh-pages -d build",
 
     "start": "react-scripts start",
 
