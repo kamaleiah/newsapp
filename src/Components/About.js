@@ -7,7 +7,7 @@ import './Home.css';
 import img from '../image/design.png';
 
 function About () {
-    const { article } = useCrud();
+    const { article, isLoggedIn } = useCrud();
 
     useEffect(() => {
         const swiper = new Swiper('.banner', {
@@ -41,9 +41,9 @@ function About () {
                 <div className="col-lg-8">
                     <div className="banner swiper">
                         <div className="swiper-wrapper align-items-center">
-                        { (article.slice(0,5)).map((a) => (
-                        <div className="swiper-slide" >
-                            <div key={a.id} className="image-container">
+                        { (article.slice(0,7)).map((a) => (
+                        <div className="swiper-slide" key={a.id}>
+                            <div className="image-container">
                                 <img src={a.imageUrl} alt="" className="image-swipe"/>
                             <div className="swiper-content">
                             <h3 style={{padding: '15px'}}>{a.title}<br/>
