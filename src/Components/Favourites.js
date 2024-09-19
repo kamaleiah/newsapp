@@ -51,7 +51,7 @@ function Favourites () {
             {favourites && (favourites.map((fav) => (
             
             <div key={fav.id} className="content" style={cellStyle}>
-                <a href={fav.website} target="_blank" style={{color:'black'}}>
+                <a rel="noreferrer" href={fav.website} target="_blank" style={{color:'black'}}>
                 <div className="header">{fav.title}</div>
                 </a>
             </div>

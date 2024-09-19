@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext, useState, useEffect, useCallback } from "react";
 import { app, auth, userdb } from "../api/firebase";
 import { getDatabase, ref, get } from "firebase/database";
 import { doc, updateDoc, arrayUnion, deleteField, onSnapshot } from "firebase/firestore";
@@ -10,7 +10,7 @@ export function FavContextProvider ({children}) {
     const [ favourites, setFavourites ] = useState([])
     const user = auth.currentUser;
 
-  const getFav = async () => {
+  const getFav = useCallback(async () => {
     if (user) {
       const unsubscribe = onSnapshot(doc(userdb, "users", user.uid), (snapshot) => {
       const favItems = snapshot.data().favourites;
@@ -18,13 +18,13 @@ export function FavContextProvider ({children}) {
       });
       return () => unsubscribe();
     }
-  }
+  }, [user])
 
   useEffect(() => {
     (async() => {
         await getFav()
     })()
-}, [user])
+}, [user, getFav])
 
   const handleFavourites = async (id) => {
     

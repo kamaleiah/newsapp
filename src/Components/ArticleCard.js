@@ -55,14 +55,14 @@ function ArticleCard(props) {
             { isHovered ? ( 
                 <div className="content">
                 <div className="description">{title}</div>
-                <a href={website} target="_blank">
+                <a rel="noreferrer" href={website} target="_blank">
                 <button className="ui button orange">Read More</button>
                 </a>
                 </div>
             ) : (
             <>
                 <div className="image" style={{ maxHeight: '150px', overflow: 'hidden' }}>
-                    <img src={imageUrl} />
+                    <img src={imageUrl} alt="article-image" />
                 </div>
                 <div className="content">
                     <div className="description" style={{ maxHeight: '100px', overflow: 'hidden' }}>{title}</div>

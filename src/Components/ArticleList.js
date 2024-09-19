@@ -11,7 +11,7 @@ function ArticleList() {
 
     useEffect(() => {
         retrieveArticles();
-    },[]);
+    },[retrieveArticles]);
 
 
     const showList = (search.length <= 1 ? (article.slice(0, artList)): sResults).map((article, index) => {

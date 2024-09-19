@@ -7,7 +7,7 @@ import './Home.css';
 import img from '../image/design.png';
 
 function About () {
-    const { article, isLoggedIn } = useCrud();
+    const { article } = useCrud();
 
     useEffect(() => {
         const swiper = new Swiper('.banner', {
@@ -47,7 +47,7 @@ function About () {
                                 <img src={a.imageUrl} alt="" className="image-swipe"/>
                             <div className="swiper-content">
                             <h3 style={{padding: '15px'}}>{a.title}<br/>
-                            <a href={a.website} target="_blank">
+                            <a rel="noreferrer" href={a.website} target="_blank">
                                 <button className="read-btn">Read More...</button></a>
                             </h3>
                             </div>
