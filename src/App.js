@@ -13,17 +13,17 @@ function App() {
 
   return (
     <div>
-          <Router basename="/">
+          <Router>
             <FavContextProvider>
               <Routes>
 
-                <Route exact path="/" 
+                <Route exact path="/newsapp/" 
                   element = { isLoggedIn ? <Navigate to="/home"/> : <UserLogin />}
                 />
-                <Route path="/home"
+                <Route path="/newsapp/home"
                   element = { !isLoggedIn ? <Navigate to="/"/> : <Homepage/>}
                 />
-                <Route exact path="/register" 
+                <Route exact path="/newsapp/register" 
                   element = { isLoggedIn ? <Navigate to="/home"/> : <Register />}
                 />
                 

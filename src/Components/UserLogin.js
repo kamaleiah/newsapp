@@ -57,7 +57,7 @@ function UserLogin () {
                 <button className="ui button blue">LOGIN</button>
                 
             </form>
-            <p style={{textAlign:"right"}}>Not yet a user? <a href="/register">Register here</a> </p>
+            <p style={{textAlign:"right"}}>Not yet a user? <a href="/newsapp/register">Register here</a> </p>
         </div>
         </div>
         </>

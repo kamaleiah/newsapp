@@ -14,7 +14,7 @@ function Register () {
         e.preventDefault();
         
         handleRegister({email,username,password})
-        navigate("/")
+        navigate("/newsapp/")
         
     }
 

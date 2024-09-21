@@ -14,7 +14,7 @@ function Banner (prop) {
 
   const userLogout = () => {
       logout()
-      navigate("/")
+      navigate("/newsapp/")
   }
 
     return (
